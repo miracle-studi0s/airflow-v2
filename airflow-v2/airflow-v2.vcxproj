@@ -93,6 +93,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="airflow.cpp" />
     <ClCompile Include="dependencies\imgui\imgui.cpp" />
     <ClCompile Include="dependencies\imgui\imgui_demo.cpp" />
     <ClCompile Include="dependencies\imgui\imgui_draw.cpp" />
@@ -108,8 +109,11 @@
     <ClCompile Include="dependencies\minhook\hook.c" />
     <ClCompile Include="dependencies\minhook\trampoline.c" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="sdk\memory\address_wrapper.cpp" />
+    <ClCompile Include="sdk\sdk.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="airflow.h" />
     <ClInclude Include="dependencies\fnv1a.hpp" />
     <ClInclude Include="dependencies\hash.hpp" />
     <ClInclude Include="dependencies\imgui\freetype\include\freetype\config\ftconfig.h" />
@@ -395,6 +399,9 @@
     <ClInclude Include="dependencies\protobufs\include\google\protobuf\wrappers.pb.h" />
     <ClInclude Include="dependencies\syscall.hpp" />
     <ClInclude Include="dependencies\xor.hpp" />
+    <ClInclude Include="dependencies.h" />
+    <ClInclude Include="sdk\memory\address_wrapper.h" />
+    <ClInclude Include="sdk\sdk.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\protobufs\include\google\protobuf\port_def.inc" />

@@ -10,6 +10,7 @@ airflow-v2/x64/
 *.lo
 *.o
 *.obj
+*.pdb
 
 # Precompiled Headers
 *.gch

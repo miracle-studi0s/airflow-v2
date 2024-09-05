@@ -1,4 +1,5 @@
-﻿#include <Windows.h>
+﻿#include "dependencies.h"
+#include "airflow.h"
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,
@@ -8,9 +9,7 @@ BOOL APIENTRY DllMain( HMODULE hModule,
     switch (ul_reason_for_call)
     {
     case DLL_PROCESS_ATTACH:
-    case DLL_THREAD_ATTACH:
-    case DLL_THREAD_DETACH:
-    case DLL_PROCESS_DETACH:
+        WINCALL(CreateThread)(NULL, NULL, reinterpret_cast<LPTHREAD_START_ROUTINE>(af::initialize), hModule, NULL, NULL);
         break;
     }
     return TRUE;

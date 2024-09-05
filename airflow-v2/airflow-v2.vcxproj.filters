@@ -16,6 +16,9 @@
     <ClCompile Include="dependencies\minhook\buffer.c" />
     <ClCompile Include="dependencies\minhook\hook.c" />
     <ClCompile Include="dependencies\minhook\trampoline.c" />
+    <ClCompile Include="airflow.cpp" />
+    <ClCompile Include="sdk\sdk.cpp" />
+    <ClCompile Include="sdk\memory\address_wrapper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dependencies\imgui\ft2build.h" />
@@ -303,6 +306,10 @@
     <ClInclude Include="dependencies\imgui\freetype\include\freetype\tttables.h" />
     <ClInclude Include="dependencies\imgui\freetype\include\freetype\tttags.h" />
     <ClInclude Include="dependencies\imgui\freetype\include\ft2build.h" />
+    <ClInclude Include="dependencies.h" />
+    <ClInclude Include="airflow.h" />
+    <ClInclude Include="sdk\sdk.h" />
+    <ClInclude Include="sdk\memory\address_wrapper.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\protobufs\include\google\protobuf\port_def.inc" />
