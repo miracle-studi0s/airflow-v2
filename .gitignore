@@ -1,6 +1,10 @@
 # Prerequisites
 *.d
 
+# VS artifact files
+.vs/
+airflow-v2/x64/
+
 # Compiled Object files
 *.slo
 *.lo
@@ -24,9 +28,12 @@
 *.lai
 *.la
 *.a
-*.lib
+
+# Debugging  symbols
+*.map
 
 # Executables
 *.exe
 *.out
 *.app
+*.idb
