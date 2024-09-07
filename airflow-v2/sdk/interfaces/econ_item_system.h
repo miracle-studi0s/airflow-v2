@@ -2,6 +2,19 @@
 
 #include "../utl/map.h"
 
+enum econ_item_definition_offsets : uintptr_t
+{
+	MODEL_NAME = 0xD8,
+	STICKERS_SUPPORTED_COUNT = 0x100,
+	SIMPLE_WEAPON_NAME = 0x1F0,
+	LOADOUT_SLOT = 0x2E8,
+};
+
+enum econ_item_system : uintptr_t
+{
+	ECON_ITEM_SCHEMA = 0x8,
+};
+
 class c_econ_item_definition
 {
 public:

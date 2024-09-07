@@ -3,7 +3,7 @@
 #include "../memory/address_wrapper.h"
 #include "../memory/vtable.h"
 
-#include "c_econ_item_system.h"
+#include "econ_item_system.h"
 
 bool c_econ_item_definition::is_weapon()
 {
@@ -52,25 +52,25 @@ bool c_econ_item_definition::is_key()
 
 const char* c_econ_item_definition::get_model_name()
 {
-	return *address{ this }.add(0xD8).as<const char**>();
+	return *address{ this }.add(MODEL_NAME).as<const char**>();
 }
 
 const char* c_econ_item_definition::get_simple_weapon_name()
 {
-	return *address{ this }.add(0x1F0).as<const char**>();
+	return *address{ this }.add(SIMPLE_WEAPON_NAME).as<const char**>();
 }
 
 int c_econ_item_definition::get_stickers_supported_count()
 {
-	return *address{ this }.add(0x100).as<int*>();
+	return *address{ this }.add(STICKERS_SUPPORTED_COUNT).as<int*>();
 }
 
 int c_econ_item_definition::get_loadout_slot()
 {
-	return *address{ this }.add(0x2E8).as<int*>();
+	return *address{ this }.add(LOADOUT_SLOT).as<int*>();
 }
 
 c_econ_item_schema* c_econ_item_system::get_econ_item_schema()
 {
-	return *address{ this }.add(0x8).as<c_econ_item_schema**>();
+	return *address{ this }.add(ECON_ITEM_SCHEMA).as<c_econ_item_schema**>();
 }

@@ -19,6 +19,10 @@ namespace af
 
 		DEBUG_LOG("Welcome to Airflow v2 \n");
 
+		const auto sv_cheats = sdk::engine_cvar->find_by_hash(fnv_hash("sv_cheats"));
+
+		printf("%llx \n", sv_cheats);
+
 #ifdef _DEBUG
 		while (!GetAsyncKeyState(VK_END))
 			Sleep(200);

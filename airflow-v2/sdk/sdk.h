@@ -34,7 +34,14 @@ namespace sdk
 		void parse();
 	}
 
+	inline void* input_system{ nullptr };
+
+	inline c_localize* localize{ nullptr };
+	inline c_engine_cvar* engine_cvar{ nullptr };
+	inline c_engine_client* engine_client{ nullptr };
 	inline c_source_client* source_client{ nullptr };
+	inline c_schema_system* schema_system{ nullptr };
+	inline c_network_client_service* network_client_service{ nullptr };
 
 	void initialize();
 	void destroy();

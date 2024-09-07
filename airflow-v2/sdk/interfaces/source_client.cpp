@@ -1,7 +1,7 @@
 #include "../memory/address_wrapper.h"
 #include "../memory/vtable.h"
 
-#include "c_econ_item_system.h"
+#include "econ_item_system.h"
 #include "source_client.h"
 
 c_econ_item_system* c_source_client::get_econ_item_system()

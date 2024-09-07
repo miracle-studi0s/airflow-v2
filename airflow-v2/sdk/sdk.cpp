@@ -39,9 +39,15 @@ namespace sdk
 
 	void parse_interfaces()
 	{
-		source_client = find_interface<c_source_client*>(modules::client, xorstr_("Source2Client002"));
+		input_system = find_interface<void*>(modules::input_system, xorstr_("InputSystemVersion001"));
 
-		
+		localize = find_interface<c_localize*>(modules::localize, xorstr_("Localize_001"));
+		engine_cvar = find_interface<c_engine_cvar*>(modules::tier0, xorstr_("VEngineCvar007"));
+		engine_client = find_interface<c_engine_client*>(modules::engine2, xorstr_("Source2EngineToClient001"));
+		source_client = find_interface<c_source_client*>(modules::client, xorstr_("Source2Client002"));
+		schema_system = find_interface<c_schema_system*>(modules::schemasystem, xorstr_("SchemaSystem_001"));
+
+		network_client_service = find_interface<c_network_client_service*>(modules::engine2, xorstr_("NetworkClientService_001"));
 	}
 
 	void parse_patterns()
