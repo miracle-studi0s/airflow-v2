@@ -18,7 +18,9 @@
     <ClCompile Include="dependencies\minhook\trampoline.c" />
     <ClCompile Include="airflow.cpp" />
     <ClCompile Include="sdk\sdk.cpp" />
-    <ClCompile Include="sdk\memory\address_wrapper.cpp" />
+    <ClCompile Include="sdk\memory\pattern_search.cpp" />
+    <ClCompile Include="sdk\interfaces\source_client.cpp" />
+    <ClCompile Include="sdk\interfaces\c_econ_item_system.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dependencies\imgui\ft2build.h" />
@@ -310,6 +312,12 @@
     <ClInclude Include="airflow.h" />
     <ClInclude Include="sdk\sdk.h" />
     <ClInclude Include="sdk\memory\address_wrapper.h" />
+    <ClInclude Include="sdk\memory\pattern_search.h" />
+    <ClInclude Include="sdk\interfaces\interfaces.h" />
+    <ClInclude Include="sdk\memory\vtable.h" />
+    <ClInclude Include="sdk\interfaces\source_client.h" />
+    <ClInclude Include="sdk\interfaces\c_econ_item_system.h" />
+    <ClInclude Include="sdk\utl\map.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\protobufs\include\google\protobuf\port_def.inc" />

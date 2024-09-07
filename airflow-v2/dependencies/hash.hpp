@@ -4,8 +4,10 @@
 #define CRC32_NUM(in) std::integral_constant<uint32_t, crc32::hash_const((const char*)&in, sizeof(in))>::value
 #define CRC32_STR(in) std::integral_constant<uint32_t, crc32::hash_const(in, sizeof(in)-1)>::value
 
-namespace crc32 {
-	static constexpr uint32_t table[] = {
+namespace crc32 
+{
+	static constexpr uint32_t table[] = 
+	{
 		0x00000000, 0x77073096, 0xee0e612c, 0x990951ba, 0x076dc419, 0x706af48f,
 		0xe963a535, 0x9e6495a3,	0x0edb8832, 0x79dcb8a4, 0xe0d5e91e, 0x97d2d988,
 		0x09b64c2b, 0x7eb17cbd, 0xe7b82d07, 0x90bf1d91, 0x1db71064, 0x6ab020f2,
@@ -87,21 +89,5 @@ namespace crc32 {
 
 		crc = crc ^ 0xFFFFFFFFU;
 		return crc;
-	}
-};
-
-namespace fnv1a
-{
-	constexpr uint32_t val_32_const = 0x811c9dc5;
-	constexpr uint32_t prime_32_const = 0x1000193;
-	constexpr uint64_t val_64_const = 0xcbf29ce484222325;
-	constexpr uint64_t prime_64_const = 0x100000001b3;
-
-	inline constexpr uint32_t hash_32( const char* const str, const uint32_t value = val_32_const ) noexcept {
-		return ( str[ 0 ] == '\0' ) ? value : hash_32( &str[ 1 ], ( value ^ uint32_t( (uint8_t)str[ 0 ] ) ) * prime_32_const );
-	}
-
-	inline constexpr uint64_t hash_64( const char* const str, const uint64_t value = val_64_const ) noexcept {
-		return ( str[ 0 ] == '\0' ) ? value : hash_64( &str[ 1 ], ( value ^ uint64_t( (uint8_t)str[ 0 ] ) ) * prime_64_const );
 	}
 }
