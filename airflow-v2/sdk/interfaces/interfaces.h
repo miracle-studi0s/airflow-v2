@@ -9,3 +9,5 @@
 #include "localize.h"
 #include "global_vars.h"
 #include "engine_trace.h"
+#include "entity_system.h"
+#include "csgo_input.h"

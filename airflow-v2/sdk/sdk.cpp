@@ -32,6 +32,10 @@ namespace sdk
 
 		global_vars = *patterns::global_vars.as<c_global_vars**>();
 		engine_trace = *patterns::engine_trace.as<c_engine_trace**>();
+		entity_system = *patterns::entity_system.as<c_entity_system**>();
+
+		using fn = c_csgo_input*(__fastcall*)();
+		csgo_input = patterns::get_csgo_input.as<fn>()();
 	}
 
 	void initialize()

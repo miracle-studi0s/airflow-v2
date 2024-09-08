@@ -30,6 +30,12 @@
     <ClCompile Include="sdk\game_data.cpp" />
     <ClCompile Include="sdk\math\vector3d.cpp" />
     <ClCompile Include="sdk\math\vector2d.cpp" />
+    <ClCompile Include="sdk\interfaces\entity_system.cpp" />
+    <ClCompile Include="sdk\interfaces\csgo_input.cpp" />
+    <ClCompile Include="sdk\protobuf\network_connection.pb.cpp" />
+    <ClCompile Include="sdk\protobuf\networkbasetypes.pb.cpp" />
+    <ClCompile Include="sdk\protobuf\user_cmd.pb.cpp" />
+    <ClCompile Include="sdk\protobuf\cs_user_cmd.pb.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dependencies\imgui\ft2build.h" />
@@ -338,6 +344,12 @@
     <ClInclude Include="sdk\math\math.h" />
     <ClInclude Include="sdk\math\vector3d.h" />
     <ClInclude Include="sdk\math\vector2d.h" />
+    <ClInclude Include="sdk\interfaces\entity_system.h" />
+    <ClInclude Include="sdk\interfaces\csgo_input.h" />
+    <ClInclude Include="sdk\protobuf\network_connection.pb.h" />
+    <ClInclude Include="sdk\protobuf\networkbasetypes.pb.h" />
+    <ClInclude Include="sdk\protobuf\user_cmd.pb.h" />
+    <ClInclude Include="sdk\protobuf\cs_user_cmd.pb.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\protobufs\include\google\protobuf\port_def.inc" />

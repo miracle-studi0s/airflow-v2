@@ -29,6 +29,9 @@ namespace sdk
 
 	inline c_global_vars* global_vars{ nullptr };
 	inline c_engine_trace* engine_trace{ nullptr };
+	inline c_entity_system* entity_system{ nullptr };
+
+	inline c_csgo_input* csgo_input{ nullptr };
 
 	void initialize();
 	void destroy();

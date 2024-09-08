@@ -19,6 +19,8 @@ namespace af
 
 		DEBUG_LOG("Welcome to Airflow v2 \n");
 
+		DEBUG_LOG("%d \n", sdk::csgo_input->sequence_number);
+
 #ifdef _DEBUG
 		while (!GetAsyncKeyState(VK_END))
 			Sleep(200);
