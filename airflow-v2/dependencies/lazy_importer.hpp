@@ -27,6 +27,12 @@
 #ifndef LAZY_IMPORTER_HPP
 #define LAZY_IMPORTER_HPP
 
+#ifdef _DEBUG
+#define WINCALL(func) func
+#else
+#define WINCALL(func) LI_FN(func).cached()
+#endif
+
 #define LI_FN( name ) ::li::detail::lazy_function< LAZY_IMPORTER_KHASH( #name ), decltype( &name ) >( )
 
 #define LI_FN_DEF( name ) ::li::detail::lazy_function< LAZY_IMPORTER_KHASH( #name ), name >( )

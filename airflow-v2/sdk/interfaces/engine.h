@@ -36,12 +36,8 @@ public:
 
 	struct 
 	{
-	private:
 		char pad_022[0xC];
-	public:
-
-		// REPLACE TO VECTOR3D!
-		float* m_eye_pos;
+		vector3d* eye_pos;
 	} *local_data;
 
 	char pad_003[0x8];

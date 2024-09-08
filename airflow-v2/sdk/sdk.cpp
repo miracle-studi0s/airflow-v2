@@ -1,31 +1,12 @@
+#include <Windows.h>
+
 #include "sdk.h"
 
 #include "../dependencies/lazy_importer.hpp"
 #include "../dependencies/xor.hpp"
 
-#include <Windows.h>
-
 namespace sdk
 {
-	namespace modules
-	{
-		void parse()
-		{
-			client				= WINCALL(GetModuleHandleA)(xorstr_("client.dll"));
-			engine2				= WINCALL(GetModuleHandleA)(xorstr_("engine2.dll"));
-			schemasystem		= WINCALL(GetModuleHandleA)(xorstr_("schemasystem.dll"));
-			tier0				= WINCALL(GetModuleHandleA)(xorstr_("tier0.dll"));
-			navsystem			= WINCALL(GetModuleHandleA)(xorstr_("navsystem.dll"));
-			rendersystem		= WINCALL(GetModuleHandleA)(xorstr_("rendersystemdx11.dll"));
-			localize			= WINCALL(GetModuleHandleA)(xorstr_("localize.dll"));
-			scenesystem			= WINCALL(GetModuleHandleA)(xorstr_("scenesystem.dll"));
-			materialsystem2		= WINCALL(GetModuleHandleA)(xorstr_("materialsystem2.dll"));
-			resourcesystem		= WINCALL(GetModuleHandleA)(xorstr_("resourcesystem.dll"));
-			input_system		= WINCALL(GetModuleHandleA)(xorstr_("inputsystem.dll"));
-			animation_system	= WINCALL(GetModuleHandleA)(xorstr_("animationsystem.dll"));
-		}
-	}
-
 	template <typename T = void*>
 	T find_interface(HMODULE module_handle, const char* name)
 	{
@@ -48,19 +29,17 @@ namespace sdk
 		schema_system = find_interface<c_schema_system*>(modules::schemasystem, xorstr_("SchemaSystem_001"));
 
 		network_client_service = find_interface<c_network_client_service*>(modules::engine2, xorstr_("NetworkClientService_001"));
-	}
 
-	void parse_patterns()
-	{
-
+		global_vars = *patterns::global_vars.as<c_global_vars**>();
+		engine_trace = *patterns::engine_trace.as<c_engine_trace**>();
 	}
 
 	void initialize()
 	{
 		modules::parse();
+		patterns::parse();
 
 		parse_interfaces();
-		parse_patterns();
 	}
 
 	void destroy()

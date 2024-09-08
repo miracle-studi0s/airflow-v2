@@ -1,6 +1,7 @@
 #include "../memory/address_wrapper.h"
 #include "../memory/vtable.h"
 
+#include "../math/vector3d.h"
 #include "engine.h"
 
 bool c_engine_client::is_in_game()

@@ -5,9 +5,11 @@
 class address
 {
 private:
-	uintptr_t pointer = 0;
+	uintptr_t pointer;
 
 public:
+	address() : pointer(0x0) {}
+
 	template<typename T = uintptr_t>
 	address(T pointer)
 	{
@@ -31,7 +33,7 @@ public:
 		pointer = *reinterpret_cast<uintptr_t*>(pointer);
 		return *this;
 	}
-
+	
 	address absolute(int offset, int size)
 	{
 		pointer += *reinterpret_cast<int32_t*>(pointer + offset);
