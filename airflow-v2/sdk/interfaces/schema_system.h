@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../utl/hash_map.h"
+
 enum schema_class_info_offsets : uintptr_t
 {
     CLASS_NAME = 0x8,

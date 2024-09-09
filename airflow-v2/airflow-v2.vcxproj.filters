@@ -352,6 +352,7 @@
     <ClInclude Include="sdk\protobuf\user_cmd.pb.h" />
     <ClInclude Include="sdk\protobuf\cs_user_cmd.pb.h" />
     <ClInclude Include="sdk\interfaces\mem_alloc.h" />
+    <ClInclude Include="sdk\utl\hash_map.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\protobufs\include\google\protobuf\port_def.inc" />

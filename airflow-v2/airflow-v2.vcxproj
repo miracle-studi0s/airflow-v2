@@ -443,6 +443,7 @@
     <ClInclude Include="sdk\protobuf\user_cmd.pb.h" />
     <ClInclude Include="sdk\sdk.h" />
     <ClInclude Include="sdk\memory\vtable.h" />
+    <ClInclude Include="sdk\utl\hash_map.h" />
     <ClInclude Include="sdk\utl\map.h" />
   </ItemGroup>
   <ItemGroup>

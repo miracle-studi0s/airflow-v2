@@ -1,6 +1,8 @@
 #pragma once
 
 #include <Windows.h>
+#include <unordered_map>
+#include <fnv1a.hpp>
 
 class address;
 
@@ -42,6 +44,13 @@ namespace patterns
 	inline address get_csgo_input{};
 	inline address get_view_angles{};
 	inline address set_view_angles{};
+
+	void parse();
+}
+
+namespace schemas
+{
+	inline std::unordered_map<uint64_t, uintptr_t> offsets{};
 
 	void parse();
 }

@@ -5,6 +5,7 @@
 #include "memory/pattern_search.h"
 
 #include "game_data.h"
+#include "../sdk/sdk.h"
 
 namespace modules
 {
@@ -48,5 +49,26 @@ namespace patterns
 		get_csgo_input = pattern::find(modules::client, xorstr_("E8 ? ? ? ? 48 8B 56 60")).absolute(1, 5);
 		get_view_angles = pattern::find(modules::client, xorstr_("4C 8B C1 85 D2 74 08 48 8D 05 ? ? ? ? C3"));
 		set_view_angles = pattern::find(modules::client, xorstr_("85 D2 75 3F 48"));
+	}
+}
+
+namespace schemas
+{
+	std::vector<std::string> dlls
+	{
+		xorstr_("client.dll"),
+		xorstr_("animationsystem.dll"),
+	};
+
+	void parse()
+	{
+		for (const auto& i : dlls)
+		{
+			auto type_scope = sdk::schema_system->find_type_scope_for_module(i.c_str());
+			if (!type_scope)
+				continue;
+
+			
+		}
 	}
 }
