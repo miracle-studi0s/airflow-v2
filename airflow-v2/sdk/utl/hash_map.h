@@ -81,7 +81,7 @@ public:
 	}
 };
 
-template<class element, int bucket_count, class key = uintptr_t, class hash_funcs = c_utl_ts_hash_generic<bucket_count, key>, int nAlignment = 0>
+template<class element, int bucket_count, class key = uintptr_t, class hash_funcs = c_utl_ts_hash_generic<bucket_count, key>, int alignment = 0>
 class c_utl_ts_hash
 {
 	static constexpr int bucket_mask = bucket_count - 1;
@@ -104,7 +104,7 @@ public:
 		return entry_memory.count();
 	}
 
-	int GetElements(int first_element, int count, utl_ts_hash_handle* handles) const
+	int get_elements(int first_element, int count, utl_ts_hash_handle* handles) const
 	{
 		int index = 0;
 		for (int bucket_index = 0; bucket_index < bucket_count; bucket_index++)
@@ -186,10 +186,10 @@ private:
 
 	utl_ts_hash_handle find(key uiKey, hash_fixed_data* first, hash_fixed_data* last)
 	{
-		for (hash_fixed_data* pElement = first; pElement != last; pElement = pElement->m_pNext)
+		for (hash_fixed_data* element = first; element != last; element = element->next)
 		{
-			if (hash_funcs::compare(pElement->ui_key, uiKey))
-				return reinterpret_cast<utl_ts_hash_handle>(pElement);
+			if (hash_funcs::compare(element->ui_key, uiKey))
+				return reinterpret_cast<utl_ts_hash_handle>(element);
 		}
 
 		return invalid_handle();
@@ -198,5 +198,5 @@ private:
 	c_utl_memory_pool entry_memory;
 	char pad[0x40];
 	hash_bucket_t buckets[bucket_count];
-	bool m_bNeedsCommit;
+	bool needs_commit;
 };
