@@ -36,6 +36,8 @@ namespace sdk
 
 		using fn = c_csgo_input*(__fastcall*)();
 		csgo_input = patterns::get_csgo_input.as<fn>()();
+
+		mem_alloc = *reinterpret_cast<c_mem_alloc**>(WINCALL(GetProcAddress)(modules::tier0, xorstr_("g_pMemAlloc")));
 	}
 
 	void initialize()

@@ -33,6 +33,8 @@ namespace sdk
 
 	inline c_csgo_input* csgo_input{ nullptr };
 
+	inline c_mem_alloc* mem_alloc{ nullptr };
+
 	void initialize();
 	void destroy();
 }
