@@ -60,6 +60,11 @@ namespace schemas
 		xorstr_("animationsystem.dll"),
 	};
 
+	uintptr_t find_offset(uint64_t hash)
+	{
+		return offsets[hash];
+	}
+
 	void parse()
 	{
 		for (const auto& i : dlls)
@@ -68,7 +73,46 @@ namespace schemas
 			if (!type_scope)
 				continue;
 
+			auto binding_table = type_scope->get_class_bind_table();
+			int count = binding_table.count();
 			
+			const auto elements = std::make_unique<utl_ts_hash_handle[]>(count);
+			const auto elements_size = binding_table.get_elements(0, count, elements.get());
+
+			for (int i = 0; i < elements_size; i++)
+			{
+				const auto element = elements[i];
+				if (!element)
+					continue;
+
+				const auto class_binding = binding_table[element];
+
+				if (!class_binding)
+					continue;
+
+				c_schema_class_binding_base* declared_class_info = type_scope->find_declared_class(class_binding->get_name());
+				if (!declared_class_info)
+					continue;
+
+				int size = declared_class_info->get_fields_size();
+				if (declared_class_info->get_fields_size() <= 0)
+					continue;
+
+				std::string name{};
+				for (int j = 0; j < size; j++) 
+				{
+					const auto fields = declared_class_info->get_fields();
+
+					{
+						name = class_binding->get_name();
+
+						name += xorstr_("->");
+						name += fields[j].name;
+					}
+
+					offsets[fnv_hash(name.c_str())] = fields[j].offset;
+				}
+			}
 		}
 	}
 }

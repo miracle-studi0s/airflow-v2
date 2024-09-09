@@ -46,6 +46,8 @@ namespace sdk
 		patterns::parse();
 
 		parse_interfaces();
+
+		schemas::parse();
 	}
 
 	void destroy()

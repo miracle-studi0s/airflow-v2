@@ -52,5 +52,6 @@ namespace schemas
 {
 	inline std::unordered_map<uint64_t, uintptr_t> offsets{};
 
+	uintptr_t find_offset(uint64_t hash);
 	void parse();
 }

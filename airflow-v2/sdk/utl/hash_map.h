@@ -135,17 +135,17 @@ public:
 
 	const element& get_element(utl_ts_hash_handle hash) const
 	{
-		return reinterpret_cast<hash_fixed_data*>(hash)->data;
+		return reinterpret_cast<hash_fixed_data*>(hash)->game_data;
 	}
 
 	element& operator[](utl_ts_hash_handle hash)
 	{
-		return reinterpret_cast<hash_fixed_data*>(hash)->data;
+		return reinterpret_cast<hash_fixed_data*>(hash)->game_data;
 	}
 
 	const element& operator[](utl_ts_hash_handle hash) const
 	{
-		return reinterpret_cast<hash_fixed_data*>(hash)->data;
+		return reinterpret_cast<hash_fixed_data*>(hash)->game_data;
 	}
 
 	key get_id(utl_ts_hash_handle hHash) const
