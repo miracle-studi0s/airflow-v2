@@ -27,21 +27,29 @@ namespace af
 #endif
 	}
 
-	void destroy(HMODULE module)
-	{
+    void destroy(HMODULE module)
+    {
 #ifdef _DEBUG
-		DEBUG_LOG("Destroying.. \n");
+        DEBUG_LOG("Destroying.. \n");
 
-		sdk::destroy();
+        sdk::destroy();
 
-		// https://stackoverflow.com/questions/622592/win32-programming-hiding-console-window
-		auto stealth = FindWindowA("ConsoleWindowClass", NULL);
-		ShowWindow(stealth, 0);
+        HWND hwnd = GetConsoleWindow();
+        HWND owner = GetWindow(hwnd, GW_OWNER);
+        if (owner == NULL)
+        {
+            ShowWindow(hwnd, SW_HIDE); // Windows 10
+            PostMessageA(hwnd, WM_CLOSE, 0, 0);
+        }
+        else
+        {
+            ShowWindow(owner, SW_HIDE);// Windows 11
+            PostMessageA(owner, WM_CLOSE, 0, 0);
+        }
 
-		PostMessageA(stealth, WM_CLOSE, 0, 0);
-		FreeConsole();
+        FreeConsole();
 
-		FreeLibraryAndExitThread(module, 0);
+        FreeLibraryAndExitThread(module, 0);
 #endif
-	}
+    }
 }

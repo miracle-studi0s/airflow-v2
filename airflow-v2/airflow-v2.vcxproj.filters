@@ -37,6 +37,11 @@
     <ClCompile Include="sdk\protobuf\user_cmd.pb.cpp" />
     <ClCompile Include="sdk\protobuf\cs_user_cmd.pb.cpp" />
     <ClCompile Include="sdk\interfaces\mem_alloc.cpp" />
+    <ClCompile Include="sdk\utl\vector.cpp" />
+    <ClCompile Include="sdk\utl\memory.cpp" />
+    <ClCompile Include="sdk\math\color.cpp" />
+    <ClCompile Include="sdk\entities\handle.cpp" />
+    <ClCompile Include="sdk\math\mat3x4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dependencies\imgui\ft2build.h" />
@@ -353,6 +358,13 @@
     <ClInclude Include="sdk\protobuf\cs_user_cmd.pb.h" />
     <ClInclude Include="sdk\interfaces\mem_alloc.h" />
     <ClInclude Include="sdk\utl\hash_map.h" />
+    <ClInclude Include="sdk\utl\vector.h" />
+    <ClInclude Include="sdk\utl\memory.h" />
+    <ClInclude Include="sdk\math\color.h" />
+    <ClInclude Include="sdk\entities\handle.h" />
+    <ClInclude Include="sdk\entities\strong_handle.h" />
+    <ClInclude Include="sdk\math\mat3x4.h" />
+    <ClInclude Include="sdk\entities\entities.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\protobufs\include\google\protobuf\port_def.inc" />

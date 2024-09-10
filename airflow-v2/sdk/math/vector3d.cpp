@@ -11,36 +11,6 @@ vector3d::vector3d(vector3d&& other) noexcept : x(other.x), y(other.y), z(other.
 
 vector3d::vector3d(float* other) : x(other[0]), y(other[1]), z(other[2]) {}
 
-float vector3d::get_x() 
-{
-	return x;
-}
-
-float vector3d::get_y()
-{
-	return y;
-}
-
-float vector3d::get_z()
-{
-	return z;
-}
-
-void vector3d::set_x(float x)
-{
-	this->x = x;
-}
-
-void vector3d::set_y(float y)
-{
-	this->y = y;
-}
-
-void vector3d::set_z(float z)
-{
-	this->z = z;
-}
-
 vector3d vector3d::operator+(const vector3d& other)
 {
 	return { x + other.x, y + other.y, z + other.z };

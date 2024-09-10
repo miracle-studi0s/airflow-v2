@@ -11,26 +11,6 @@ vector2d::vector2d(vector2d&& other) noexcept : x(other.x), y(other.y) {}
 
 vector2d::vector2d(float* other) : x(other[0]), y(other[1]) {}
 
-float vector2d::get_x()
-{
-	return x;
-}
-
-float vector2d::get_y()
-{
-	return y;
-}
-
-void vector2d::set_x(float x)
-{
-	this->x = x;
-}
-
-void vector2d::set_y(float y)
-{
-	this->y = y;
-}
-
 vector2d vector2d::operator+(const vector2d& other)
 {
 	return { x + other.x, y + other.y };
