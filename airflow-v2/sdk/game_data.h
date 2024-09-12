@@ -4,6 +4,32 @@
 #include <unordered_map>
 #include <fnv1a.hpp>
 
+#define SCHEMA(type, name, hash) \
+	type name() \
+	{ \
+		static auto schema_offset = schemas::find_offset(hash); \
+		return *(std::remove_reference_t<type>*)(reinterpret_cast<uintptr_t>(this) + schema_offset);\
+	} \
+
+#define OFFSET(type, name, offset) \
+	type name() \
+	{ \
+		return *(std::remove_reference_t<type>*)(reinterpret_cast<uintptr_t>(this) + offset);\
+	} \
+
+#define SCHEMA_PTR(type, name, hash) \
+	type name() \
+	{ \
+		static auto schema_offset = schemas::find_offset(hash); \
+		return (std::remove_reference_t<type>*)(reinterpret_cast<uintptr_t>(this) + schema_offset);\
+	} \
+
+#define OFFSET_PTR(type, name, offset) \
+	type name() \
+	{ \
+		return (std::remove_reference_t<type>*)(reinterpret_cast<uintptr_t>(this) + offset);\
+	} \
+
 class address;
 
 namespace modules

@@ -11,8 +11,8 @@
 #include "memory/vtable.h"
 
 #include "math/math.h"
-
 #include "interfaces/interfaces.h"
+#include "entities/entities.h"
 
 #include "game_data.h"
 

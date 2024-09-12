@@ -109,6 +109,7 @@
     <ClCompile Include="dependencies\minhook\hook.c" />
     <ClCompile Include="dependencies\minhook\trampoline.c" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="sdk\entities\entity_instance.cpp" />
     <ClCompile Include="sdk\entities\handle.cpp" />
     <ClCompile Include="sdk\game_data.cpp" />
     <ClCompile Include="sdk\interfaces\csgo_input.cpp" />
@@ -423,6 +424,7 @@
     <ClInclude Include="dependencies\syscall.hpp" />
     <ClInclude Include="dependencies\xor.hpp" />
     <ClInclude Include="dependencies.h" />
+    <ClInclude Include="sdk\entities\entity_instance.h" />
     <ClInclude Include="sdk\entities\entities.h" />
     <ClInclude Include="sdk\entities\handle.h" />
     <ClInclude Include="sdk\entities\strong_handle.h" />

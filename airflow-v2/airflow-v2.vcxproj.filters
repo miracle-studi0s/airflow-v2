@@ -42,6 +42,7 @@
     <ClCompile Include="sdk\math\color.cpp" />
     <ClCompile Include="sdk\entities\handle.cpp" />
     <ClCompile Include="sdk\math\mat3x4.cpp" />
+    <ClCompile Include="sdk\entities\entity_instance.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dependencies\imgui\ft2build.h" />
@@ -365,6 +366,7 @@
     <ClInclude Include="sdk\entities\strong_handle.h" />
     <ClInclude Include="sdk\math\mat3x4.h" />
     <ClInclude Include="sdk\entities\entities.h" />
+    <ClInclude Include="sdk\entities\entity_instance.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\protobufs\include\google\protobuf\port_def.inc" />

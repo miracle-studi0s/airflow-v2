@@ -13,9 +13,8 @@
 #include <dxgi.h>
 #include <xmmintrin.h>
 #include <Windows.h>
-
-#include "dependencies/lazy_importer.hpp"
-#include "dependencies/fnv1a.hpp"
-#include "dependencies/hash.hpp"
-#include "dependencies/syscall.hpp"
-#include "dependencies/xor.hpp"
+#include <lazy_importer.hpp>
+#include <fnv1a.hpp>
+#include <hash.hpp>
+#include <syscall.hpp>
+#include <xor.hpp>

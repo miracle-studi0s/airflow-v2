@@ -1,9 +1,8 @@
 #include <Windows.h>
+#include <lazy_importer.hpp>
+#include <xor.hpp>
 
 #include "sdk.h"
-
-#include "../dependencies/lazy_importer.hpp"
-#include "../dependencies/xor.hpp"
 
 namespace sdk
 {

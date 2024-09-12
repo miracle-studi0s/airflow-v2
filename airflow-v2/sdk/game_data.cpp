@@ -52,6 +52,12 @@ namespace patterns
 	}
 }
 
+class a
+{
+public:
+	SCHEMA(int, test, fnv_hash("a->b"));
+};
+
 namespace schemas
 {
 	std::vector<std::string> dlls
