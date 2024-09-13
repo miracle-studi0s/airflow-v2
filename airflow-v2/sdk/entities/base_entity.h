@@ -8,6 +8,8 @@
 #include "handle.h"
 #include "entity_instance.h"
 
+class c_collision;
+
 enum base_entity_instance_vfuncs : uintptr_t
 {
 	IS_WEAPON = 156,
@@ -15,6 +17,7 @@ enum base_entity_instance_vfuncs : uintptr_t
 
 class c_base_entity : public c_entity_instance
 {
+public:
 	SCHEMA(int, team_num, fnv_hash("C_BaseEntity->m_iTeamNum"));
 	SCHEMA(c_handle, owner_entity, fnv_hash("C_BaseEntity->m_hOwnerEntity"));
 	SCHEMA(int, flags, fnv_hash("C_BaseEntity->m_fFlags"));
@@ -22,6 +25,9 @@ class c_base_entity : public c_entity_instance
 	SCHEMA(int, actual_move_type, fnv_hash("C_BaseEntity->m_nActualMoveType"));
 	SCHEMA(int, health, fnv_hash("C_BaseEntity->m_iHealth"));
 	SCHEMA(vector3d, velocity, fnv_hash("C_BaseEntity->m_vecVelocity"));
+	SCHEMA(c_collision*, collision, fnv_hash("C_BaseEntity->m_pCollision"));
+	SCHEMA(uint32_t, subclass_id, fnv_hash("C_BaseEntity->m_nSubclassID"));
 
 	bool is_weapon();
+	void update_subclasses();
 };

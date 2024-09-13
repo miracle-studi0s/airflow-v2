@@ -49,6 +49,16 @@ namespace patterns
 		get_csgo_input = pattern::find(modules::client, xorstr_("E8 ? ? ? ? 48 8B 56 60")).absolute(1, 5);
 		get_view_angles = pattern::find(modules::client, xorstr_("4C 8B C1 85 D2 74 08 48 8D 05 ? ? ? ? C3"));
 		set_view_angles = pattern::find(modules::client, xorstr_("85 D2 75 3F 48"));
+
+		update_subclass = pattern::find(modules::client, xorstr_("40 53 48 83 EC 30 48 8B 41 10 48 8B D9 8B 50 30"));
+		set_model = pattern::find(modules::client, xorstr_("E8 ? ? ? ? 41 8B 54 24 ? 49 8B 0C 24")).absolute(1, 5);
+		physics_run_think = pattern::find(modules::client, xorstr_("E8 ? ? ? ? 49 8B D6 48 8B CE E8 ? ? ? ? 48 8B 06")).absolute(1, 5);
+
+		get_inaccuracy = pattern::find(modules::client, xorstr_("48 89 5C 24 ? 55 56 57 48 81 EC ? ? ? ? 0F 29 B4 24"));
+		get_spread = pattern::find(modules::client, xorstr_("48 83 EC ? 48 63 91"));
+		update_accuracy_penalty = pattern::find(modules::client, xorstr_("48 89 5C 24 ? 57 48 83 EC ? 48 8B F9 E8 ? ? ? ? 48 8B D8 48 85 C0 0F 84 ? ? ? ? 44 0F 29 44 24"));
+
+		get_bone_index = pattern::find(modules::client, xorstr_("E8 ? ? ? ? 33 DB 89 47 08")).absolute(1, 5);
 	}
 }
 

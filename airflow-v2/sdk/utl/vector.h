@@ -43,3 +43,11 @@ public:
     bool find_and_fast_remove(const T& src);
     int get_offset(const T& src) const;
 };
+
+template <typename T>
+class c_network_utl_vector 
+{
+public:
+    unsigned int size;
+    T* elements;
+};

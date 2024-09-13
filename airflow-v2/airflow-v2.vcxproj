@@ -61,6 +61,7 @@
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <UndefinePreprocessorDefinitions>min, max</UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -82,6 +83,7 @@
       <LanguageStandard>stdcpp20</LanguageStandard>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <AdditionalOptions>/Zc:threadSafeInit- %(AdditionalOptions)</AdditionalOptions>
+      <UndefinePreprocessorDefinitions>min, max</UndefinePreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -110,8 +112,14 @@
     <ClCompile Include="dependencies\minhook\trampoline.c" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="sdk\entities\base_entity.cpp" />
+    <ClCompile Include="sdk\entities\base_model_entity.cpp" />
+    <ClCompile Include="sdk\entities\base_player_weapon.cpp" />
+    <ClCompile Include="sdk\entities\econ_item_view.cpp" />
     <ClCompile Include="sdk\entities\entity_instance.cpp" />
     <ClCompile Include="sdk\entities\handle.cpp" />
+    <ClCompile Include="sdk\entities\player_controller.cpp" />
+    <ClCompile Include="sdk\entities\player_movement_services.cpp" />
+    <ClCompile Include="sdk\entities\player_pawn.cpp" />
     <ClCompile Include="sdk\game_data.cpp" />
     <ClCompile Include="sdk\interfaces\csgo_input.cpp" />
     <ClCompile Include="sdk\interfaces\engine_cvar.cpp" />
@@ -425,11 +433,24 @@
     <ClInclude Include="dependencies\syscall.hpp" />
     <ClInclude Include="dependencies\xor.hpp" />
     <ClInclude Include="dependencies.h" />
+    <ClInclude Include="sdk\entities\base_anim_graph.h" />
+    <ClInclude Include="sdk\entities\base_combat_character.h" />
     <ClInclude Include="sdk\entities\base_entity.h" />
+    <ClInclude Include="sdk\entities\base_flex.h" />
+    <ClInclude Include="sdk\entities\base_model_entity.h" />
+    <ClInclude Include="sdk\entities\base_player_weapon.h" />
+    <ClInclude Include="sdk\entities\collision.h" />
+    <ClInclude Include="sdk\entities\econ_entity.h" />
+    <ClInclude Include="sdk\entities\econ_item_view.h" />
     <ClInclude Include="sdk\entities\entity_instance.h" />
     <ClInclude Include="sdk\entities\entities.h" />
-    <ClInclude Include="sdk\entities\game_scene_node.h" />
     <ClInclude Include="sdk\entities\handle.h" />
+    <ClInclude Include="sdk\entities\player_controller.h" />
+    <ClInclude Include="sdk\entities\player_item_services.h" />
+    <ClInclude Include="sdk\entities\player_movement_services.h" />
+    <ClInclude Include="sdk\entities\player_pawn.h" />
+    <ClInclude Include="sdk\entities\player_view_model_services.h" />
+    <ClInclude Include="sdk\entities\player_weapon_services.h" />
     <ClInclude Include="sdk\entities\strong_handle.h" />
     <ClInclude Include="sdk\game_data.h" />
     <ClInclude Include="sdk\interfaces\csgo_input.h" />

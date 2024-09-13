@@ -4,6 +4,8 @@
 #include "../math/math.h"
 #include "../game_data.h"
 
+#include "../entities/entities.h"
+
 #include "engine_trace.h"
 
 surface_data_t* game_trace_t::get_surface_data()
@@ -37,20 +39,19 @@ trace_filter_t::trace_filter_t(uint64_t mask, c_cs_player_pawn* entity, c_cs_pla
 	this->ptr4 = 0x49;
 	this->ptr5 = 0;
 
-	// ADD ENTITIES LATER!
-	/*if (entity != nullptr)
+	if (entity != nullptr)
 	{
-		m_skip_handles[0] = entity->get_handle().get_entry_index();
-		m_skip_handles[2] = entity->get_owner_handle_index();
-		m_arr_collisions[0] = entity->m_collision()->get_collision_mask();
+		skip_handle[0] = entity->get_handle().get_entry_index();
+		skip_handle[2] = entity->get_collision_owner_index();
+		collision_mask[0] = entity->collision()->collision_mask();
 	}
 
 	if (player != nullptr)
 	{
-		m_skip_handles[0] = player->get_handle().get_entry_index();
-		m_skip_handles[2] = player->get_owner_handle_index();
-		m_arr_collisions[0] = player->m_collision()->get_collision_mask();
-	}*/
+		skip_handle[0] = player->get_handle().get_entry_index();
+		skip_handle[2] = player->get_collision_owner_index();
+		collision_mask[0] = player->collision()->collision_mask();
+	}
 }
 
 void trace::init_trace(trace_filter_t& filter, c_cs_player_pawn* pawn, uint64_t mask, uint8_t layer, uint16_t unknown)

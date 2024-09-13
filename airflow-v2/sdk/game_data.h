@@ -4,6 +4,9 @@
 #include <unordered_map>
 #include <fnv1a.hpp>
 
+#undef min
+#undef max
+
 #define SCHEMA(type, name, hash) \
 	type name() \
 	{ \
@@ -18,7 +21,7 @@
 	} \
 
 #define SCHEMA_PTR(type, name, hash) \
-	type name() \
+	type* name() \
 	{ \
 		static auto schema_offset = schemas::find_offset(hash); \
 		return (std::remove_reference_t<type>*)(reinterpret_cast<uintptr_t>(this) + schema_offset);\
@@ -70,6 +73,13 @@ namespace patterns
 	inline address get_csgo_input{};
 	inline address get_view_angles{};
 	inline address set_view_angles{};
+	inline address update_subclass{};
+	inline address set_model{};
+	inline address physics_run_think{};
+	inline address get_inaccuracy{};
+	inline address get_spread{};
+	inline address update_accuracy_penalty{};
+	inline address get_bone_index{};
 
 	void parse();
 }
