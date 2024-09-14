@@ -7,6 +7,7 @@
 
 #include "handle.h"
 #include "entity_instance.h"
+#include "scene_node.h"
 
 class c_collision;
 
@@ -27,6 +28,7 @@ public:
 	SCHEMA(vector3d, velocity, fnv_hash("C_BaseEntity->m_vecVelocity"));
 	SCHEMA(c_collision*, collision, fnv_hash("C_BaseEntity->m_pCollision"));
 	SCHEMA(uint32_t, subclass_id, fnv_hash("C_BaseEntity->m_nSubclassID"));
+	SCHEMA(c_game_scene_node*, game_scene_node, fnv_hash("C_BaseEntity->m_pGameSceneNode"));
 
 	bool is_weapon();
 	void update_subclasses();

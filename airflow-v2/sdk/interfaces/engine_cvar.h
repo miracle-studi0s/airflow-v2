@@ -63,7 +63,7 @@ class c_convar
 public:
 	const char* name;
 	c_convar* next;
-	std::byte pad_0008[0x10];
+	char pad_0008[0x10];
 	const char* description;
 	unsigned int type;
 	unsigned int registered;

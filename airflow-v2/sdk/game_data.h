@@ -80,6 +80,10 @@ namespace patterns
 	inline address get_spread{};
 	inline address update_accuracy_penalty{};
 	inline address get_bone_index{};
+	inline address get_bone_flags{};
+	inline address get_bone_parent{};
+	inline address calc_world_space_bones{};
+	inline address set_mesh_group_mask{};
 
 	void parse();
 }

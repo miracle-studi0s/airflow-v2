@@ -59,6 +59,11 @@ namespace patterns
 		update_accuracy_penalty = pattern::find(modules::client, xorstr_("48 89 5C 24 ? 57 48 83 EC ? 48 8B F9 E8 ? ? ? ? 48 8B D8 48 85 C0 0F 84 ? ? ? ? 44 0F 29 44 24"));
 
 		get_bone_index = pattern::find(modules::client, xorstr_("E8 ? ? ? ? 33 DB 89 47 08")).absolute(1, 5);
+		get_bone_flags = pattern::find(modules::client, xorstr_("85 D2 78 16 3B 91"));
+		get_bone_parent = pattern::find(modules::client, xorstr_("85 D2 78 17 3B 91 78"));
+
+		calc_world_space_bones = pattern::find(modules::client, xorstr_("40 55 56 57 41 54 41 55 41 56 41 57 48 81 EC D0"));
+		set_mesh_group_mask = pattern::find(modules::client, xorstr_("E8 ? ? ? ? 48 8B 5C 24 ? 4C 8B 7C 24 ? 4C 8B 74 24 ?")).absolute(0x1, 0x5);
 	}
 }
 

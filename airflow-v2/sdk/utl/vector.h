@@ -4,44 +4,23 @@ template <class T>
 class c_utl_vector
 {
 public:
-    c_utl_vector()
-    {
-        size = 0;
-        elements = nullptr;
-    }
+    auto begin() const { return data; }
+    auto end() const { return data + size; }
 
-    T& element(int i);
-    const T& element(int i) const;
+    auto at(int i) const { return data[i]; }
+    auto at_ptr(int i) const { return data + i; }
 
-    T& operator[](int i)
-    {
-        return elements[i];
+    bool exists(T val) const {
+        for (const auto& it : *this)
+            if (it == val) return true;
+        return false;
     }
-
-    int count() const
-    {
-        return size;
-    }
+    bool is_empty() const { return size == 0; }
 
     int size;
-    T* elements;
-
-    int add_to_head();
-    int add_to_tail();
-    int insert_before(int elem);
-    int insert_after(int elem);
-    int add_to_head(const T& src);
-    int add_to_tail(const T& src);
-    int insert_before(int elem, const T& src);
-    int insert_after(int elem, const T& src);
-    void grow_vector(int num = 1);
-    void shift_elements_right(int elem, int num = 1);
-    void shift_elements_left(int elem, int num = 1);
-    void fast_remove(int elem);
-    void remove(int elem);
-    bool find_and_remove(const T& src);
-    bool find_and_fast_remove(const T& src);
-    int get_offset(const T& src) const;
+    char pad0[0x4];
+    T* data;
+    char pad1[0x8];
 };
 
 template <typename T>

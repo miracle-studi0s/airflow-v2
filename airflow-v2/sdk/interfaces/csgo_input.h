@@ -6,7 +6,7 @@
 class c_in_button_state
 {
 public:
-    std::byte pad_0000[8]; //0x0000
+    char pad_0000[8]; //0x0000
     uint64_t button_state; //0x0008
     uint64_t button_state2; //0x0010
     uint64_t button_state3; //0x0018
@@ -15,7 +15,7 @@ public:
 class c_user_cmd
 {
 public:
-    std::byte pad_valve_shizo[0x10];
+    char pad_valve_shizo[0x10];
     c_csgo_user_cmd_pb pb;
     c_in_button_state button_state; //0x0040
     char pad_0068[0x8]; //0x0068

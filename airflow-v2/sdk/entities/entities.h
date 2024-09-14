@@ -15,3 +15,7 @@
 #include "player_item_services.h"
 #include "base_player_weapon.h"
 #include "player_pawn.h"
+#include "player_camera_services.h"
+#include "env_sky.h"
+#include "post_processing.h"
+#include "model.h"

@@ -178,7 +178,7 @@ private:
 	{
 	private:
 		[[ maybe_unused ]]
-		std::byte m_pad0[0x18];
+		char m_pad0[0x18];
 	public:
 		hash_fixed_data* first;
 		hash_fixed_data* first_uncommited;
