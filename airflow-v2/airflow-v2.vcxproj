@@ -500,6 +500,7 @@
     <ClInclude Include="sdk\misc\base_scene_object.h" />
     <ClInclude Include="sdk\misc\light_scene.h" />
     <ClInclude Include="sdk\misc\misc.h" />
+    <ClInclude Include="sdk\misc\view_setup.h" />
     <ClInclude Include="sdk\protobuf\cs_user_cmd.pb.h" />
     <ClInclude Include="sdk\protobuf\networkbasetypes.pb.h" />
     <ClInclude Include="sdk\protobuf\network_connection.pb.h" />
