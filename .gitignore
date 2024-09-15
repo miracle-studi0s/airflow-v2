@@ -3,7 +3,8 @@
 
 # VS artifact files
 .vs/
-airflow-v2/x64/
+airflow-v2/x64/Debug
+airflow-v2/x64/Release
 
 # Compiled Object files
 *.slo
