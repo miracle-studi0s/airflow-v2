@@ -19,6 +19,7 @@ using hook = std::tuple<void*, void*, void*>;
 enum hook_vfuncs
 {
 	DX11_PRESENT = 8,
+	CREATEMOVE = 5,
 };
 
 namespace hooks
