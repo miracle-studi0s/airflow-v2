@@ -12,7 +12,7 @@ c_hitbox* c_model::get_hitbox(int index)
 	if (perm_model_data.ref_meshes.size <= 0)
 		return nullptr;
 
-	auto mesh = perm_model_data.ref_meshes.at(0);
+	auto mesh = perm_model_data.ref_meshes.element(0);
 	if (!mesh)
 		return nullptr;
 
@@ -33,9 +33,9 @@ c_hitbox* c_model::get_hitbox(int index)
 const char* c_model::get_bone_name(int index)
 {
 	if (perm_model_data.model_skeleton.bone_name.size <= 0 || perm_model_data.model_skeleton.bone_name.size > index)
-		return "root";
+		return xorstr_("root");
 
-	return perm_model_data.model_skeleton.bone_name.at(index);
+	return perm_model_data.model_skeleton.bone_name.element(index);
 }
 
 const char* c_model::get_hitbox_name(int index)
@@ -53,7 +53,7 @@ int c_model::get_max_hitboxes()
 	if (perm_model_data.ref_meshes.size <= 0)
 		return -1;
 
-	auto meshes = perm_model_data.ref_meshes.at(0);
+	auto meshes = perm_model_data.ref_meshes.element(0);
 	if (!meshes)
 		return -1;
 

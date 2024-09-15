@@ -24,7 +24,6 @@ public:
 
 	T* operator->()
 	{
-
 		if (!binding)
 			return nullptr;
 

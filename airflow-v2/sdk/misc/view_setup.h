@@ -2,7 +2,8 @@
 
 #include "../math/vector3d.h"
 
-class c_view_setup {
+class c_view_setup 
+{
 public:
     char pad_0000[0x04D8]; //0x0000
     float fov; //0x04D8
