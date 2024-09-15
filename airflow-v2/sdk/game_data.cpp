@@ -64,6 +64,8 @@ namespace patterns
 
 		calc_world_space_bones = pattern::find(modules::client, xorstr_("40 55 56 57 41 54 41 55 41 56 41 57 48 81 EC D0"));
 		set_mesh_group_mask = pattern::find(modules::client, xorstr_("E8 ? ? ? ? 48 8B 5C 24 ? 4C 8B 7C 24 ? 4C 8B 74 24 ?")).absolute(0x1, 0x5);
+
+		rendersystem_device = pattern::find(modules::rendersystem, xorstr_("66 0F 7F 0D ? ? ? ? 66 0F 7F 05 ? ? ? ? 0F 1F 40 00")).absolute(0x4, 0x8);
 	}
 }
 

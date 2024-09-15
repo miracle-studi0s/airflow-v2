@@ -17,6 +17,10 @@ namespace af
 		DEBUG_LOG("Initalizing SDK \n");
 		sdk::initialize();
 
+        DEBUG_LOG("Adding hooks \n");
+        hooks::initialize();
+        DEBUG_LOG("Done! \n");
+
 		DEBUG_LOG("Welcome to Airflow v2 \n");
 
 #ifdef _DEBUG
@@ -33,6 +37,7 @@ namespace af
         DEBUG_LOG("Destroying.. \n");
 
         sdk::destroy();
+        hooks::destroy();
 
         HWND hwnd = GetConsoleWindow();
         HWND owner = GetWindow(hwnd, GW_OWNER);

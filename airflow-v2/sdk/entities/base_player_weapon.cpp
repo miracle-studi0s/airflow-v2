@@ -3,6 +3,7 @@
 #include "../memory/address_wrapper.h"
 #include "../memory/vtable.h"
 
+#include "../constants.h"
 #include "base_player_weapon.h"
 
 bool c_base_player_weapon::is_throwing_nade()

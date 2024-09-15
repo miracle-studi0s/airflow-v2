@@ -1,11 +1,7 @@
 #include "color.h"
 
 c_byte_color::c_byte_color(float _r, float _g, float _b)
-{
-	r = static_cast<unsigned char>(_r);
-	g = static_cast<unsigned char>(_g);
-	b = static_cast<unsigned char>(_b);
-}
+	: r(static_cast<unsigned char>(_r)), g(static_cast<unsigned char>(_g)), b(static_cast<unsigned char>(_b)) {}
 
 c_byte_color c_byte_color::operator+(c_byte_color color)
 {

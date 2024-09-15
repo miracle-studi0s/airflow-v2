@@ -1,6 +1,7 @@
 #pragma once
 
 #include "sdk/sdk.h"
+#include "hooks/hooks.h"
 
 namespace af
 {

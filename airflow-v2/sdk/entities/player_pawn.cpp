@@ -18,8 +18,7 @@ bool c_cs_player_pawn::is_alive()
 
 bool c_cs_player_pawn::has_armor(int hitgroup)
 {
-	// REPLACE TO ENUM LATER!
-	if (hitgroup == 1)
+	if (hitgroup == HITGROUP_HEAD)
 		return item_services()->has_helmet();
 
 	return armor_value();

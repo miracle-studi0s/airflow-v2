@@ -10,6 +10,7 @@
 #include "memory/pattern_search.h"
 #include "memory/vtable.h"
 
+#include "constants.h"
 #include "math/math.h"
 #include "interfaces/interfaces.h"
 #include "entities/entities.h"

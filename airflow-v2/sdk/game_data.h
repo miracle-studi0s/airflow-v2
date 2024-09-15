@@ -84,6 +84,7 @@ namespace patterns
 	inline address get_bone_parent{};
 	inline address calc_world_space_bones{};
 	inline address set_mesh_group_mask{};
+	inline address rendersystem_device{};
 
 	void parse();
 }
