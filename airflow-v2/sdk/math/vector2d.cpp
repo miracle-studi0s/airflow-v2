@@ -1,6 +1,9 @@
 #include <cmath>
 #include <limits>
 
+#include <imgui/imgui.h>
+#include <imgui/imgui_internal.h>
+
 #include "vector2d.h"
 
 vector2d::vector2d() : x(0.f), y(0.f) {}
@@ -95,6 +98,20 @@ vector2d vector2d::operator=(const vector2d& other)
 }
 
 vector2d vector2d::operator=(vector2d&& other) noexcept
+{
+	x = other.x;
+	y = other.y;
+	return *this;
+}
+
+vector2d vector2d::operator=(const ImVec2& other)
+{
+	x = other.x;
+	y = other.y;
+	return *this;
+}
+
+vector2d vector2d::operator=(ImVec2&& other) noexcept
 {
 	x = other.x;
 	y = other.y;

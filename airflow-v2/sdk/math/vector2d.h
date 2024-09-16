@@ -1,5 +1,7 @@
 #pragma once
 
+struct ImVec2;
+
 class vector2d
 {
 public:
@@ -29,6 +31,9 @@ public:
 
 	vector2d operator=(const vector2d& other);
 	vector2d operator=(vector2d&& other) noexcept;
+
+	vector2d operator=(const ImVec2& other);
+	vector2d operator=(ImVec2&& other) noexcept;
 
 	bool operator==(const vector2d& other);
 	bool operator!=(const vector2d& other);

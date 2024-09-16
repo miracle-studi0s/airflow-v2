@@ -38,6 +38,7 @@ namespace af
 
         sdk::destroy();
         hooks::destroy();
+        render::destroy();
 
         HWND hwnd = GetConsoleWindow();
         HWND owner = GetWindow(hwnd, GW_OWNER);

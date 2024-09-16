@@ -14,11 +14,19 @@ enum hook_information
 	HOOK_ORIGINAL_PTR
 };
 
-using hook = std::tuple<void*, void*, void*>;
+struct hook
+{
+	void* original{ nullptr };
+	void* target{ nullptr };
+	void* old_original{ nullptr };
+};
 
 enum hook_vfuncs
 {
 	DX11_PRESENT = 8,
+	DX11_RESIZE_BUFFERS = 13,
+
+	DXGI_CREATE_SWAP_CHAIN = 10,
 };
 
 namespace hooks
@@ -27,8 +35,8 @@ namespace hooks
 
 	inline void hook_function(void* original, void* target)
 	{
-		auto new_hook = std::make_tuple(original, target, reinterpret_cast<void*>(0));
-		if (MH_CreateHook(original, target, &std::get<HOOK_ORIGINAL_PTR>(new_hook)))
+		hook new_hook{ original, target, nullptr };
+		if (MH_CreateHook(original, target, &new_hook.old_original))
 		{
 #ifdef _DEBUG
 			MessageBoxA(0, "Failed to hook function", 0, 0);
@@ -47,11 +55,11 @@ namespace hooks
 		auto found_hook = std::find_if(hooks.begin(), hooks.end(), 
 			[&fn](const hook& hk)
 			{
-				return std::get<HOOK_TARGET>(hk) == fn;
+				return hk.target == fn;
 			});
 
 		if (found_hook != hooks.end())
-			return reinterpret_cast<T>(std::get<HOOK_ORIGINAL_PTR>(*found_hook));
+			return reinterpret_cast<T>(found_hook->old_original);
 
 		return nullptr;
 	}

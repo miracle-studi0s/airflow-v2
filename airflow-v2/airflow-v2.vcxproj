@@ -112,6 +112,7 @@
     <ClCompile Include="dependencies\minhook\trampoline.c" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="hooks\hooks.cpp" />
+    <ClCompile Include="render\render.cpp" />
     <ClCompile Include="sdk\entities\base_entity.cpp" />
     <ClCompile Include="sdk\entities\base_model_entity.cpp" />
     <ClCompile Include="sdk\entities\base_player_weapon.cpp" />
@@ -439,6 +440,7 @@
     <ClInclude Include="dependencies\xor.hpp" />
     <ClInclude Include="dependencies.h" />
     <ClInclude Include="hooks\hooks.h" />
+    <ClInclude Include="render\render.h" />
     <ClInclude Include="sdk\constants.h" />
     <ClInclude Include="sdk\entities\attachments.h" />
     <ClInclude Include="sdk\entities\base_anim_graph.h" />
