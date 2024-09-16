@@ -27,6 +27,8 @@ enum hook_vfuncs
 	DX11_RESIZE_BUFFERS = 13,
 
 	DXGI_CREATE_SWAP_CHAIN = 10,
+
+	INPUT_CREATEMOVE = 5,
 };
 
 namespace hooks

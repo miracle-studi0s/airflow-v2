@@ -25,7 +25,7 @@ namespace hooks
 		return original(swap_chain, sync_interval, flags);
 	}
 
-	static HRESULT resize_buffers(IDXGISwapChain* swap_chain, uint32_t buffer_count, 
+	static HRESULT resize_buffers(IDXGISwapChain* swap_chain, uint32_t buffer_count,
 		uint32_t w, uint32_t h, DXGI_FORMAT new_format, uint32_t flags)
 	{
 		auto original = find_original(&resize_buffers)(swap_chain, buffer_count, w, h, new_format, flags);
@@ -42,6 +42,14 @@ namespace hooks
 		render::reset();
 
 		return original(factory, device, desc, pp_swap_chain);
+	}
+
+	static void create_move(c_csgo_input* csgo_input, int slot, bool frame_active)
+	{
+		static auto original = find_original(&create_move);
+		original(csgo_input, slot, frame_active);
+
+		return original(csgo_input, slot, frame_active);
 	}
 
 	void initialize()
@@ -85,6 +93,11 @@ namespace hooks
 			dxgi_factory->Release();
 			dxgi_factory = nullptr;
 		}
+
+		volatile auto createmove_vtable_address = vtable::get(sdk::csgo_input, INPUT_CREATEMOVE);
+
+		hook_function(present_vtable_address, reinterpret_cast<void*>(&present));
+		hook_function(createmove_vtable_address, reinterpret_cast<void*>(&create_move));
 
 		for (auto& i : hooks)
 			MH_EnableHook(i.original);
