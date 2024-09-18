@@ -16,7 +16,6 @@ namespace render
 	ImDrawList* draw_list_act{ nullptr };
 	ImDrawList* draw_list_rendering{ nullptr };
 	ImDrawData draw_data{};
-	ImDrawListSharedData _data{};
 
 	vector2d screen_size{};
 
@@ -98,8 +97,6 @@ namespace render
 		io.FontDefault = test_font.imfont;
 
 		ImGui_ImplDX11_CreateDeviceObjects();
-
-		_data = *ImGui::GetDrawListSharedData();
 
 		draw_list_act = new ImDrawList(ImGui::GetDrawListSharedData());
 		draw_list_rendering = new ImDrawList(ImGui::GetDrawListSharedData());
