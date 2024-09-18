@@ -14,11 +14,16 @@ namespace af
 		freopen_s(reinterpret_cast<FILE**>(stdin), "CONIN$", "r", stdin);
 #endif
 
+        DEBUG_LOG("Creating config \n");
+        configs::init_configs();
+        configs::init_folder();
+
 		DEBUG_LOG("Initalizing SDK \n");
 		sdk::initialize();
 
         DEBUG_LOG("Adding hooks \n");
         hooks::initialize();
+
         DEBUG_LOG("Done! \n");
 
 		DEBUG_LOG("Welcome to Airflow v2 \n");

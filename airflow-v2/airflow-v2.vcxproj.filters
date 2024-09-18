@@ -56,6 +56,9 @@
     <ClCompile Include="sdk\entities\skeleton_instance.cpp" />
     <ClCompile Include="sdk\math\mat2x4.cpp" />
     <ClCompile Include="render\render.cpp" />
+    <ClCompile Include="gui\config.cpp" />
+    <ClCompile Include="menu\menu.cpp" />
+    <ClCompile Include="menu\configs.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dependencies\imgui\ft2build.h" />
@@ -422,6 +425,9 @@
     <ClInclude Include="sdk\misc\misc.h" />
     <ClInclude Include="sdk\misc\view_setup.h" />
     <ClInclude Include="render\render.h" />
+    <ClInclude Include="gui\config.h" />
+    <ClInclude Include="menu\menu.h" />
+    <ClInclude Include="menu\configs.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\protobufs\include\google\protobuf\port_def.inc" />

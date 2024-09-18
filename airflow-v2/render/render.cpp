@@ -80,11 +80,6 @@ namespace render
 		ImGui_ImplDX11_Init(device, device_context);
 		ImGui_ImplWin32_Init(window);
 
-		_data = ImDrawListSharedData();
-
-		draw_list_act = new ImDrawList(&_data);
-		draw_list_rendering = new ImDrawList(&_data);
-
 		auto& io = ImGui::GetIO();
 		io.IniFilename = nullptr;
 		io.LogFilename = nullptr;
@@ -103,6 +98,11 @@ namespace render
 		io.FontDefault = test_font.imfont;
 
 		ImGui_ImplDX11_CreateDeviceObjects();
+
+		_data = *ImGui::GetDrawListSharedData();
+
+		draw_list_act = new ImDrawList(ImGui::GetDrawListSharedData());
+		draw_list_rendering = new ImDrawList(ImGui::GetDrawListSharedData());
 
 		initialized = true;
 	}
@@ -157,9 +157,7 @@ namespace render
 		ImGui_ImplDX11_NewFrame();
 		ImGui::NewFrame();
 
-		ImGui::GetForegroundDrawList()->AddRectFilled({}, { 100, 100 }, ImColor(255, 255, 255, 255));
-
-		ImGui::GetForegroundDrawList()->AddText(test_font.imfont, test_font.size, { 10, 10 }, ImColor(0, 0, 0, 255), "HI");
+		screen_size = ImGui::GetIO().DisplaySize;
 	}
 
 	void end()

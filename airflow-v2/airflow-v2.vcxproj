@@ -55,7 +55,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;AIRFLOWV2_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;_DEBUG;AIRFLOWV2_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -76,7 +76,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;AIRFLOWV2_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NDEBUG;AIRFLOWV2_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
@@ -111,7 +111,10 @@
     <ClCompile Include="dependencies\minhook\hook.c" />
     <ClCompile Include="dependencies\minhook\trampoline.c" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="gui\config.cpp" />
     <ClCompile Include="hooks\hooks.cpp" />
+    <ClCompile Include="menu\configs.cpp" />
+    <ClCompile Include="menu\menu.cpp" />
     <ClCompile Include="render\render.cpp" />
     <ClCompile Include="sdk\entities\base_entity.cpp" />
     <ClCompile Include="sdk\entities\base_model_entity.cpp" />
@@ -439,7 +442,10 @@
     <ClInclude Include="dependencies\syscall.hpp" />
     <ClInclude Include="dependencies\xor.hpp" />
     <ClInclude Include="dependencies.h" />
+    <ClInclude Include="gui\config.h" />
     <ClInclude Include="hooks\hooks.h" />
+    <ClInclude Include="menu\configs.h" />
+    <ClInclude Include="menu\menu.h" />
     <ClInclude Include="render\render.h" />
     <ClInclude Include="sdk\constants.h" />
     <ClInclude Include="sdk\entities\attachments.h" />

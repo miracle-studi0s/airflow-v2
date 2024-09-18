@@ -29,6 +29,9 @@ enum hook_vfuncs
 	DXGI_CREATE_SWAP_CHAIN = 10,
 
 	INPUT_CREATEMOVE = 5,
+	INPUT_MOUSE_INPUT = 16,
+
+	INPUTSYSTEM_ENABLE_CURSOR = 78,
 };
 
 namespace hooks
@@ -42,7 +45,6 @@ namespace hooks
 		{
 #ifdef _DEBUG
 			MessageBoxA(0, "Failed to hook function", 0, 0);
-			exit(0);
 #endif
 
 			return;

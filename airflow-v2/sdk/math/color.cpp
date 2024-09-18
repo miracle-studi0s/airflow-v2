@@ -133,6 +133,21 @@ c_color::c_color(float _r, float _g, float _b, float _a)
 	a = _a;
 }
 
+c_color::c_color(const c_color& other) 
+	: r(other.r), g(other.g), b(other.b), a(other.a) {};
+
+c_color::c_color(c_color&& other)
+	: r(other.r), g(other.g), b(other.b), a(other.a) {};
+
+c_color c_color::operator=(const c_color& other)
+{
+	r = other.r;
+	g = other.g;
+	b = other.b;
+	a = other.a;
+	return *this;
+}
+
 c_color c_color::operator+(c_color color)
 {
 	return c_color(r + color.r, g + color.g, b + color.b, a + color.a);
@@ -260,10 +275,10 @@ bool c_color::operator==(c_color color)
 
 bool c_color::operator!=(c_color color)
 {
-	return !(*this == color);
+	return r != color.r || g != color.g || b != color.b || a != color.a;
 }
 
-c_color c_color::convert_from_hsv_to_color()
+c_color c_color::to_percent()
 {
 	r /= 255.f;
 	g /= 255.f;
@@ -298,4 +313,12 @@ c_color c_color::set_alpha(float alpha)
 ImColor c_color::im()
 {
 	return ImColor(r, g, b, a);
+}
+
+uint32_t c_color::to_hex()
+{
+	return ((static_cast<unsigned char>(r) & 0xff) << 24) 
+		+ ((static_cast<unsigned char>(g) & 0xff) << 16)
+		+ ((static_cast<unsigned char>(b) & 0xff) << 8)
+		+ (static_cast<unsigned char>(a) & 0xff);
 }

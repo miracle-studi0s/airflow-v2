@@ -37,6 +37,11 @@ public:
 	float r, g, b, a;
 
 	c_color(float _r = 0, float _g = 0, float _b = 0, float _a = 0);
+	c_color(const c_color& other);
+	c_color(c_color&& other);
+
+	c_color operator=(const c_color& other);
+
 	c_color operator+(c_color color);
 	c_color operator+(float n);
 	c_color operator+=(c_color color);
@@ -55,9 +60,11 @@ public:
 	c_color operator*=(float n);
 	bool operator==(c_color color);
 	bool operator!=(c_color color);
-	c_color convert_from_hsv_to_color();
+	c_color to_percent();
 	c_color lerp(c_color& other, float step);
 	c_byte_color to_byte();
 	c_color set_alpha(float alpha);
 	ImColor im();
+
+	uint32_t to_hex();
 };
