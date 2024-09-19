@@ -110,10 +110,10 @@ namespace configs
 
 	void init_configs()
 	{
-		ADD_BOOL(cfg::get().auto_jump);
-		ADD_BOOL(cfg::get().auto_strafe);
+		ADD_BOOL(g_cfg.auto_jump);
+		ADD_BOOL(g_cfg.auto_strafe);
 
-		ADD_BOOL(cfg::get().ui.opened);
+		ADD_BOOL(g_cfg.ui.opened);
 	}
 
 	void save(const std::string& name)

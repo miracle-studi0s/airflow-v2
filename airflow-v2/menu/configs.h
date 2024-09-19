@@ -39,16 +39,6 @@ struct config_variable
 
 struct cfg
 {
-    cfg() {}
-    cfg(const cfg& other) = delete;
-    cfg& operator=(const cfg&) = delete;
-
-    static cfg& get()
-    {
-        static cfg cfg;
-        return cfg;
-    }
-
     bool auto_jump{ false };
     bool auto_strafe{ false };
 
@@ -58,6 +48,8 @@ struct cfg
         bool enable_cursor{ false };
     } ui;
 };
+
+inline cfg g_cfg{};
 
 namespace configs
 {

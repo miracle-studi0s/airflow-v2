@@ -111,7 +111,6 @@
     <ClCompile Include="dependencies\minhook\hook.c" />
     <ClCompile Include="dependencies\minhook\trampoline.c" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="gui\config.cpp" />
     <ClCompile Include="hooks\hooks.cpp" />
     <ClCompile Include="menu\configs.cpp" />
     <ClCompile Include="menu\menu.cpp" />
@@ -442,7 +441,6 @@
     <ClInclude Include="dependencies\syscall.hpp" />
     <ClInclude Include="dependencies\xor.hpp" />
     <ClInclude Include="dependencies.h" />
-    <ClInclude Include="gui\config.h" />
     <ClInclude Include="hooks\hooks.h" />
     <ClInclude Include="menu\configs.h" />
     <ClInclude Include="menu\menu.h" />

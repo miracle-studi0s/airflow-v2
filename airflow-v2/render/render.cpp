@@ -1,6 +1,8 @@
 #include <Windows.h>
 #include <mutex>
 
+#include <xor.hpp>
+
 #include "render.h"
 
 namespace render
@@ -92,7 +94,7 @@ namespace render
 
 		io.Fonts->TexGlyphPadding = 2;
 
-		test_font.init(io, "C:\\Windows\\Fonts\\consolab.ttf", 13.f, &cfg);
+		test_font.init(io, xorstr_("C:\\Windows\\Fonts\\consolab.ttf"), 13.f, &cfg);
 
 		io.FontDefault = test_font.imfont;
 

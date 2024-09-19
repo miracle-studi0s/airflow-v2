@@ -66,6 +66,7 @@ namespace patterns
 		set_mesh_group_mask = pattern::find(modules::client, xorstr_("E8 ? ? ? ? 48 8B 5C 24 ? 4C 8B 7C 24 ? 4C 8B 74 24 ?")).absolute(0x1, 0x5);
 
 		rendersystem_device = pattern::find(modules::rendersystem, xorstr_("66 0F 7F 0D ? ? ? ? 66 0F 7F 05 ? ? ? ? 0F 1F 40 00")).absolute(0x4, 0x8);
+		should_render_cursor = pattern::find(modules::input_system, xorstr_("E8 ? ? ? ? 48 8B 5C 24 ? 49 8B C6")).absolute(0x1, 0x5);
 	}
 }
 

@@ -17,11 +17,11 @@ namespace menu
 
 	void render()
 	{
-		if (!cfg::get().ui.opened)
+		if (!g_cfg.ui.opened)
 			return;
 
 		ImGui::SetNextWindowSize({ 590, 424 }, ImGuiCond_Once);
-		ImGui::Begin("CONQUEST", &cfg::get().ui.opened, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
+		ImGui::Begin("CONQUEST", &g_cfg.ui.opened, ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse);
 		{
 			ImGui::BeginChild("Tabs", { 145, 385 }, true);
 			{
@@ -45,8 +45,8 @@ namespace menu
 					break;
 				case 2:
 				{
-					ImGui::Checkbox("Auto jump", &cfg::get().auto_jump);
-					ImGui::Checkbox("Auto strafe", &cfg::get().auto_strafe);
+					ImGui::Checkbox("Auto jump", &g_cfg.auto_jump);
+					ImGui::Checkbox("Auto strafe", &g_cfg.auto_strafe);
 				}
 				break;
 				case 3:

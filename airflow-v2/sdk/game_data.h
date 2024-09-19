@@ -85,6 +85,7 @@ namespace patterns
 	inline address calc_world_space_bones{};
 	inline address set_mesh_group_mask{};
 	inline address rendersystem_device{};
+	inline address should_render_cursor{};
 
 	void parse();
 }

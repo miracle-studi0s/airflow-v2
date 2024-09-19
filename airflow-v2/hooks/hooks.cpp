@@ -55,8 +55,6 @@ namespace hooks
 	static void create_move(c_csgo_input* csgo_input, int slot, bool frame_active)
 	{
 		static auto original = find_original(&create_move);
-		original(csgo_input, slot, frame_active);
-
 		return original(csgo_input, slot, frame_active);
 	}
 
@@ -64,7 +62,7 @@ namespace hooks
 	{
 		static auto original = find_original(&mouse_input);
 
-		if (cfg::get().ui.opened)
+		if (g_cfg.ui.opened)
 			return false;
 
 		return original(rcx);
@@ -74,8 +72,8 @@ namespace hooks
 	{
 		static auto original = find_original(&enable_cursor);
 
-		cfg::get().ui.enable_cursor = active;
-		if (cfg::get().ui.opened)
+		g_cfg.ui.enable_cursor = active;
+		if (g_cfg.ui.opened)
 			active = false;
 
 		return original(rcx, active);
@@ -84,10 +82,18 @@ namespace hooks
 	static LRESULT wnd_proc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 	{
 		if (msg == WM_KEYUP && wparam == VK_INSERT)
-			cfg::get().ui.opened = !cfg::get().ui.opened;
+		{
+			g_cfg.ui.opened = !g_cfg.ui.opened;
 
-		if (ImGui_ImplWin32_WndProcHandler(hwnd, msg, wparam, lparam))
-			return true;
+			static auto enable_cursor_original = find_original(&enable_cursor);
+			enable_cursor_original(sdk::input_system, g_cfg.ui.opened ? false : g_cfg.ui.enable_cursor);
+		}
+
+		if (g_cfg.ui.opened)
+		{
+			if (ImGui_ImplWin32_WndProcHandler(hwnd, msg, wparam, lparam) || ImGui::GetIO().WantTextInput)
+				return true;
+		}
 
 		return WINCALL(CallWindowProcA)(wnd_proc_original, hwnd, msg, wparam, lparam);
 	}
@@ -121,10 +127,10 @@ namespace hooks
 
 		hooks.reserve(MAX_HOOKS);
 
-		volatile auto dx11_swap_chain = **patterns::rendersystem_device.as<uint8_t***>();
-		volatile auto swap_chain_ptr = *address{ dx11_swap_chain }.add(0x170).as<IDXGISwapChain**>();
-		volatile auto present_vtable_address = vtable::get(swap_chain_ptr, DX11_PRESENT);
-		volatile auto resize_buffers_vtable_address = vtable::get(swap_chain_ptr, DX11_RESIZE_BUFFERS);
+		auto dx11_swap_chain = **patterns::rendersystem_device.as<uint8_t***>();
+		auto swap_chain_ptr = *address{ dx11_swap_chain }.add(0x170).as<IDXGISwapChain**>();
+		auto present_vtable_address = vtable::get(swap_chain_ptr, DX11_PRESENT);
+		auto resize_buffers_vtable_address = vtable::get(swap_chain_ptr, DX11_RESIZE_BUFFERS);
 
 		hook_function(present_vtable_address, reinterpret_cast<void*>(&present));
 		hook_function(resize_buffers_vtable_address, reinterpret_cast<void*>(&resize_buffers));
@@ -157,13 +163,13 @@ namespace hooks
 			dxgi_factory = nullptr;
 		}
 
-		volatile auto createmove_vtable_address = vtable::get(sdk::csgo_input, INPUT_CREATEMOVE);
-		volatile auto mouse_input_vtable_address = vtable::get(sdk::csgo_input, INPUT_MOUSE_INPUT);
+		auto createmove_vtable_address = vtable::get(sdk::csgo_input, INPUT_CREATEMOVE);
+		auto mouse_input_vtable_address = vtable::get(sdk::csgo_input, INPUT_MOUSE_INPUT);
 		hook_function(createmove_vtable_address, reinterpret_cast<void*>(&create_move));
 		hook_function(mouse_input_vtable_address, reinterpret_cast<void*>(&mouse_input));
 
-		volatile auto enable_cursor_vtable_address = vtable::get(sdk::input_system, INPUTSYSTEM_ENABLE_CURSOR);
-		hook_function(enable_cursor_vtable_address, reinterpret_cast<void*>(&enable_cursor));
+		auto enable_cursor_address = vtable::get(sdk::input_system, INPUTSYSTEM_ENABLE_CURSOR);
+		hook_function(enable_cursor_address, reinterpret_cast<void*>(&enable_cursor));
 
 		for (auto& i : hooks)
 			MH_EnableHook(i.original);
@@ -174,7 +180,7 @@ namespace hooks
 	void destroy()
 	{
 		static auto enable_cursor_original = find_original(&enable_cursor);
-		enable_cursor_original(sdk::input_system, cfg::get().ui.enable_cursor);
+		enable_cursor_original(sdk::input_system, g_cfg.ui.enable_cursor);
 
 		unhook_wnd_proc();
 
