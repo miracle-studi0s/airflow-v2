@@ -55,7 +55,7 @@ namespace hooks
 	static void create_move(c_csgo_input* csgo_input, int slot, bool frame_active)
 	{
 		static auto original = find_original(&create_move);
-		return original(csgo_input, slot, frame_active);
+		original(csgo_input, slot, frame_active);
 	}
 
 	static bool mouse_input(void* rcx)
@@ -81,6 +81,8 @@ namespace hooks
 
 	static LRESULT wnd_proc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
 	{
+		ImGui_ImplWin32_WndProcHandler(hwnd, msg, wparam, lparam);
+
 		if (msg == WM_KEYUP && wparam == VK_INSERT)
 		{
 			g_cfg.ui.opened = !g_cfg.ui.opened;
@@ -91,8 +93,32 @@ namespace hooks
 
 		if (g_cfg.ui.opened)
 		{
-			if (ImGui_ImplWin32_WndProcHandler(hwnd, msg, wparam, lparam) || ImGui::GetIO().WantTextInput)
-				return true;
+			switch (msg)
+			{
+			case WM_MOUSEMOVE:
+			case WM_NCMOUSEMOVE:
+			case WM_MOUSELEAVE:
+			case WM_NCMOUSELEAVE:
+			case WM_LBUTTONDOWN:
+			case WM_LBUTTONDBLCLK:
+			case WM_RBUTTONDOWN:
+			case WM_RBUTTONDBLCLK:
+			case WM_MBUTTONDOWN:
+			case WM_MBUTTONDBLCLK:
+			case WM_XBUTTONDOWN:
+			case WM_XBUTTONDBLCLK:
+			case WM_LBUTTONUP:
+			case WM_RBUTTONUP:
+			case WM_MBUTTONUP:
+			case WM_XBUTTONUP:
+			case WM_MOUSEWHEEL:
+			case WM_MOUSEHWHEEL:
+				return 1;
+			}
+
+			auto& io = ImGui::GetIO();
+			if (io.WantCaptureKeyboard)
+				return 1;
 		}
 
 		return WINCALL(CallWindowProcA)(wnd_proc_original, hwnd, msg, wparam, lparam);

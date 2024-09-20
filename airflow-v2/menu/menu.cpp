@@ -47,6 +47,9 @@ namespace menu
 				{
 					ImGui::Checkbox("Auto jump", &g_cfg.auto_jump);
 					ImGui::Checkbox("Auto strafe", &g_cfg.auto_strafe);
+
+					static char buf[256]{};
+					ImGui::InputText("TEST", buf, 256);
 				}
 				break;
 				case 3:
