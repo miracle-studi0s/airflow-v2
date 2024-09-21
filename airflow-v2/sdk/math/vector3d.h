@@ -1,5 +1,7 @@
 #pragma once
 
+class CMsgQAngle;
+
 class vector3d
 {
 public:
@@ -9,6 +11,7 @@ public:
 
 	vector3d();
 	vector3d(float x, float y, float z);
+	vector3d(const CMsgQAngle& other);
 	vector3d(const vector3d& other);
 	vector3d(vector3d&& other) noexcept;
 	vector3d(float* other);
@@ -22,6 +25,11 @@ public:
 	vector3d operator-=(const vector3d& other);
 	vector3d operator*=(const vector3d& other);
 	vector3d operator/=(const vector3d& other);
+
+	vector3d operator+(float other);
+	vector3d operator-(float other);
+	vector3d operator*(float other);
+	vector3d operator/(float other);
 
 	vector3d operator+=(float value);
 	vector3d operator-=(float value);
@@ -42,6 +50,8 @@ public:
 
 	float dot_product(const vector3d& other);
 	float dot_product(float* other);
+
+	float inversed_dot(const vector3d& other);
 
 	vector3d cross_product(const vector3d& other);
 	vector3d normalized();

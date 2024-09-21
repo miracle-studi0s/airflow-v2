@@ -111,6 +111,9 @@
     <ClCompile Include="dependencies\minhook\hook.c" />
     <ClCompile Include="dependencies\minhook\trampoline.c" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="features\features.cpp" />
+    <ClCompile Include="features\misc\misc.cpp" />
+    <ClCompile Include="features\cmd_proto.h" />
     <ClCompile Include="hooks\hooks.cpp" />
     <ClCompile Include="menu\configs.cpp" />
     <ClCompile Include="menu\menu.cpp" />
@@ -142,6 +145,7 @@
     <ClCompile Include="sdk\math\color.cpp" />
     <ClCompile Include="sdk\math\mat2x4.cpp" />
     <ClCompile Include="sdk\math\mat3x4.cpp" />
+    <ClCompile Include="sdk\math\math.cpp" />
     <ClCompile Include="sdk\math\vector2d.cpp" />
     <ClCompile Include="sdk\math\vector3d.cpp" />
     <ClCompile Include="sdk\memory\pattern_search.cpp" />
@@ -441,6 +445,8 @@
     <ClInclude Include="dependencies\syscall.hpp" />
     <ClInclude Include="dependencies\xor.hpp" />
     <ClInclude Include="dependencies.h" />
+    <ClInclude Include="features\features.h" />
+    <ClInclude Include="features\misc\misc.h" />
     <ClInclude Include="hooks\hooks.h" />
     <ClInclude Include="menu\configs.h" />
     <ClInclude Include="menu\menu.h" />

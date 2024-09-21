@@ -58,6 +58,10 @@
     <ClCompile Include="render\render.cpp" />
     <ClCompile Include="menu\menu.cpp" />
     <ClCompile Include="menu\configs.cpp" />
+    <ClCompile Include="features\features.cpp" />
+    <ClCompile Include="features\misc\misc.cpp" />
+    <ClCompile Include="features\cmd_proto.h" />
+    <ClCompile Include="sdk\math\math.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="dependencies\imgui\ft2build.h" />
@@ -426,6 +430,8 @@
     <ClInclude Include="render\render.h" />
     <ClInclude Include="menu\menu.h" />
     <ClInclude Include="menu\configs.h" />
+    <ClInclude Include="features\features.h" />
+    <ClInclude Include="features\misc\misc.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="dependencies\protobufs\include\google\protobuf\port_def.inc" />

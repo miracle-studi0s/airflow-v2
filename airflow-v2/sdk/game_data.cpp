@@ -67,6 +67,9 @@ namespace patterns
 
 		rendersystem_device = pattern::find(modules::rendersystem, xorstr_("66 0F 7F 0D ? ? ? ? 66 0F 7F 05 ? ? ? ? 0F 1F 40 00")).absolute(0x4, 0x8);
 		should_render_cursor = pattern::find(modules::input_system, xorstr_("E8 ? ? ? ? 48 8B 5C 24 ? 49 8B C6")).absolute(0x1, 0x5);
+
+		create_new_subtick_move_step = pattern::find(modules::client, xorstr_("E8 ? ? ? ? 48 8B D0 48 8D 4F ? E8 ? ? ? ? 48 8B D0")).absolute(0x1, 0x5);
+		add_to_move_step = pattern::find(modules::client, xorstr_("E8 ? ? ? ? 48 8B D0 8B 4A ? F3 41 0F 10 46")).absolute(0x1, 0x5);
 	}
 }
 

@@ -26,6 +26,7 @@ public:
 	SCHEMA(int, actual_move_type, fnv_hash("C_BaseEntity->m_nActualMoveType"));
 	SCHEMA(int, health, fnv_hash("C_BaseEntity->m_iHealth"));
 	SCHEMA(vector3d, velocity, fnv_hash("C_BaseEntity->m_vecVelocity"));
+	SCHEMA(vector3d, abs_velocity, fnv_hash("C_BaseEntity->m_vecAbsVelocity"));
 	SCHEMA(c_collision*, collision, fnv_hash("C_BaseEntity->m_pCollision"));
 	SCHEMA(uint32_t, subclass_id, fnv_hash("C_BaseEntity->m_nSubclassID"));
 	SCHEMA(c_game_scene_node*, game_scene_node, fnv_hash("C_BaseEntity->m_pGameSceneNode"));

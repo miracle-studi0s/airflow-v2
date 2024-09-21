@@ -7,6 +7,8 @@
 #include "../menu/configs.h"
 #include "../menu/menu.h"
 
+#include "../features/features.h"
+
 #include "hooks.h"
 
 IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
@@ -56,6 +58,13 @@ namespace hooks
 	{
 		static auto original = find_original(&create_move);
 		original(csgo_input, slot, frame_active);
+
+		auto cmd = csgo_input->get_user_cmd();
+		if (cmd)
+		{
+			misc::auto_jump(cmd);
+			misc::auto_strafe(cmd);
+		}
 	}
 
 	static bool mouse_input(void* rcx)

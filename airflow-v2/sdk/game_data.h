@@ -86,6 +86,8 @@ namespace patterns
 	inline address set_mesh_group_mask{};
 	inline address rendersystem_device{};
 	inline address should_render_cursor{};
+	inline address create_new_subtick_move_step{};
+	inline address add_to_move_step{};
 
 	void parse();
 }

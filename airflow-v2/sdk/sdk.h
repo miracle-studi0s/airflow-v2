@@ -1,7 +1,9 @@
 #pragma once
 
+#include <iostream>
+
 #ifdef _DEBUG
-#define DEBUG_LOG(text, ...) printf(text, __VA_ARGS__)
+#define  DEBUG_LOG(text)
 #else
 #define DEBUG_LOG(text)
 #endif
